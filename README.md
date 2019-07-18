@@ -28,11 +28,17 @@ cat /proc/cpuinfo| grep "processor"| wc -l
 
 
 ## .bz2 
-　　解压1：bzip2 -d FileName.bz2 
-　　解压2：bunzip2 FileName.bz2 
-　　压缩： bzip2 -z FileName 
-　　.tar.bz2 
-　　解压：tar jxvf FileName.tar.bz2        或tar --bzip xvf FileName.tar.bz2 
-　　压缩：tar jcvf FileName.tar.bz2 DirName 
+解压1：bzip2 -d FileName.bz2
+
+解压2：bunzip2 FileName.bz2 
+
+压缩： bzip2 -z FileName 
+
+## .tar.bz2
+解压：tar jxvf FileName.tar.bz2     或tar --bzip xvf FileName.tar.bz2
+
+压缩：tar jcvf FileName.tar.bz2 DirName 
+
+
 
 
