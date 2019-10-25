@@ -39,6 +39,13 @@ cat /proc/cpuinfo| grep "processor"| wc -l
 
 压缩：tar jcvf FileName.tar.bz2 DirName 
 
+##下载目录下所有文件
+wget -r -np -nH -R index.html http://url...
+各个参数的含义：
 
-
+-r : 遍历所有子目录
+-np : 不到上一层子目录去
+-nH : 不要将文件保存到主机名文件夹
+-R index.html : 不下载 index.html 文件
+下载完后删掉无用的文件即可
 
