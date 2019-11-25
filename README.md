@@ -49,3 +49,19 @@ wget -r -np -nH -R index.html http://url...
 -R index.html : 不下载 index.html 文件
 下载完后删掉无用的文件即可
 
+## 把用户加到sudo组
+1、切换到root用户：su root
+
+2、找到sudo文件/etc/sudoers，该文件默认是不可写的，添加可写权限
+
+chmod u+w /etc/sudoers
+
+3、修改sudoers文件，找到以下语句
+
+root ALL=(ALL:ALL) ALL
+
+在下面添加
+
+yourUserName ALL=(ALL:ALL) ALL
+
+
