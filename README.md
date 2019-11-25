@@ -64,4 +64,9 @@ root ALL=(ALL:ALL) ALL
 
 yourUserName ALL=(ALL:ALL) ALL
 
+保存退出。修改此文件风险比较大， 文件如果改坏， 导致所有用户的 sudo 权限都没了，所以修改时请注意
+
+4、鉴于安全考虑修改完后应把sudoers写权限去掉
+
+chmod u-w /etc/sudoers
 
