@@ -12,6 +12,8 @@ chmod 700 -R dir/filename
 0:group
 0:others
 
+## usermod -a -G sudo suveng
+
 ## check all user information
 cat /etc/passwd
 
