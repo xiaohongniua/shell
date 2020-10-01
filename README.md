@@ -72,3 +72,6 @@ yourUserName ALL=(ALL:ALL) ALL
 
 chmod u-w /etc/sudoers
 
+5、杀某个名称的进程
+ps -efww|grep -w 'glide_backend'|grep -v grep|cut -c 9-15|xargs kill -9
+
