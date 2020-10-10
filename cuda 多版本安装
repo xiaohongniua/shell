@@ -1,0 +1,85 @@
+## cuda 
+#先执行下面的命令安装相关依赖，
+#否则会出现`Missing recommended library`错误
+sudo apt-get install freeglut3-dev build-essential
+libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev 
+ 
+ 
+sudo sh cuda_8.0.61_375.26_linux.run #开始安装
+ 
+#..一堆协议说明...
+#直接按q退出协议说明.
+zerozone@zerozone: accept/decline/quit: accept  #接受协议
+ 
+Install NVIDIA Accelerated Graphics Driver for Linux-x86_64 375.26? 
+y)es/(n)o/(q)uit: n  #是否显卡驱动包，由于已经安装显卡驱动，选择n
+ 
+Install the CUDA 8.0 Toolkit?
+(y)es/(n)o/(q)uit: y #是否安装工具包，选择y
+ 
+Enter Toolkit Location
+[ default is /usr/local/cuda-8.0 ]: #工具包安装地址，默认回车即可
+ 
+Do you want to install a symbolic link at /usr/local/cuda?
+(y)es/(n)o/(q)uit: y #添加链接**注意这个连接，如果你之前安装过另一个版本的cuda，除非你确定想要用这个新版本的cuda，否则这里就建议选no，因为指定该链接后会将cuda指向这个新的版本**
+ 
+Install the CUDA 8.0 Samples?
+(y)es/(n)o/(q)uit: y #安装样例
+ 
+Enter CUDA Samples Location
+ [ default is /root ]:  #样例安装地址默认即可
+ 
+# ***安装信息***
+Installing the CUDA Toolkit in /usr/local/cuda-8.0 ...
+ 
+Missing recommended library: libXi.so
+Missing recommended library: libXmu.so
+#注意，这里出现了Missing recommended library错误，
+#是因为博主在第一次安装时，没有添加最开始的那条安装相关依赖的指令，
+#之后我添加了依赖后，再次安装，就没有Missing错误了
+ 
+Installing the CUDA Samples in /root ...
+Copying samples to /root/NVIDIA_CUDA-8.0_Samples now...
+Finished copying samples.
+ 
+===========
+= Summary =
+===========
+Driver:   Not Selected
+Toolkit:  Installed in /usr/local/cuda-8.0
+Samples:  Installed in /root, but missing recommended libraries
+ 
+Please make sure that
+ -   PATH includes /usr/local/cuda-8.0/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-8.0/lib64, or, add /usr/local/cuda-8.0/lib64 to /etc/ld.so.conf and run ldconfig as root
+ 
+To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-8.0/bin
+ 
+Please see CUDA_Installation_Guide_Linux.pdf in /usr/local/cuda-8.0/doc/pdf for detailed information on setting up CUDA.
+ 
+***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 361.00 is required for CUDA 8.0 functionality to work.
+ 
+To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file:
+ 
+    sudo <CudaInstaller>.run -silent -driver
+ 
+Logfile is /tmp/cuda_install_6388.log   
+# ***安装完成***
+
+
+配置CUDA相关环境变量 
+修改~/.bashrc文件（或~/.zhsrc） 在文件末尾添加环境变量
+
+Tensorflow官方安装历程要求注意的是:配置PATH和LD_LIBRARY_PATH和CUDA_HOME环境变量.
+ 
+vim ~/.bashrc #修改配置文件（如果你用的是zsh，则需要修改 ~/.zshrc文件）
+ 
+#在文件结尾处添加
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin
+export CUDA_HOME=$CUDA_HOME:/usr/local/cuda
+
+
+## 软连接
+sudo ln -s /usr/local/cuda-9.1 /usr/local/cuda
+
