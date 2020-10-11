@@ -22,7 +22,13 @@ quit()
 2
 3
 但是再后续安装过程中,发生了一个神奇的错误,开始以为是gcc的错误,后面发现是python3.7的问题,查了很多解决方式也没解决这个问题
+所以另开了python3.6的版本
 
+conda create -n py36 python=3.6 anaconda  #py36为自己取的名字，python=3.6是我需要的版本号
+conda activate py36 #启用python3.6
+python #查看是否切换成功
+quit()
+which python #查看python所在路径
 
 2.AMBER18的下载和安装
 2.1下载AMBER18
